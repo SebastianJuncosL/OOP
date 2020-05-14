@@ -5,13 +5,12 @@
 using namespace std;
 Videojuego::Videojuego(string name, string rating, string genre)
 {
-    this->name=&name;
-    this->rating=&rating;
-    this->genre=&genre;
-
+    this->name = &name;
+    this->rating = &rating;
+    this->genre = &genre;
 }
 
-Videojuego::Videojuego()
+Videojuego::~Videojuego()
 {
     delete lifes;
 }

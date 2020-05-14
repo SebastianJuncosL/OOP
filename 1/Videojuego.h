@@ -5,15 +5,16 @@ using namespace std;
 class Videojuego
 {
 private:
-    string name;
-    string rating;
-    string genre;
-    bool playing;
-    int lifes = 3;
+    string *name;
+    string *rating;
+    string *genre;
+    bool *playing;
+    int *lifes = new int(3);
 
 public:
     Videojuego();
     Videojuego(string, string, string);
+    ~Videojuego();
     void getInfo();
     void playGame();
     bool moveFordward();

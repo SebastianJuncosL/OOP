@@ -5,17 +5,24 @@
 using namespace std;
 Videojuego::Videojuego(string name, string rating, string genre)
 {
-    this->name=name;
-    this->rating=rating;
-    this->genre=genre;
+    this->name=&name;
+    this->rating=&rating;
+    this->genre=&genre;
 
 }
+
+Videojuego::Videojuego()
+{
+    delete lifes;
+}
+
 void Videojuego::getInfo()
 {
     std::cout << "Name:" << name << std::endl;
     std::cout << "Genre:" << genre << std::endl;
     std::cout << "Rating:" << rating << std::endl;
 }
+
 void Videojuego::playGame()
 {
     string answer;
@@ -23,10 +30,10 @@ void Videojuego::playGame()
     cin >> answer;
     if (answer == "yes" || answer == "y" || answer == "si")
     {
-        playing = true;
-        while (playing == true)
+        *playing = true;
+        while (*playing == true)
         {
-            playing = moveFordward();
+            *playing = moveFordward();
         }
     }
     std::cout << "Thanks for playing!" << std::endl;

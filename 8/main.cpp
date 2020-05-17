@@ -12,7 +12,8 @@ int main(int argc, char const *argv[])
     // cout<<cam->getMother()<<endl;
     // lety->getNumOfAntecessors();
     //cam->getAntecessor();
-    cam->getOldestAntecessor();
+    //cam->getOldestAntecessor();
+    cam->getYoungestAntecessor();
     delete cam;
     // delete sol;
     // delete lau;

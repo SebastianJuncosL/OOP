@@ -111,6 +111,29 @@ void Persona::getOldestAntecessor() // Done
     std::cout << nombre << " oldest antecessor is " << oldestName << " with " << oldestAge << " years" << std::endl;
 }
 
-void Persona::getYoungestAntecessor()
+void Persona::getYoungestAntecessor() // Done
 {
+    Persona *current = mama;
+    int youngestAge = mama->edad;
+    string youngestName = mama->nombre;
+    if (nombre == "Sara")
+    {
+        std::cout << "Sara has no antecessors" << std::endl;
+        delete current;
+        return;
+    }
+    while (true)
+    {
+        if (current->edad < youngestAge)
+        {
+            youngestAge = current->edad;
+            youngestName = current->nombre;
+        }
+        if (current->getName() == "Sara")
+        {
+            break;
+        }
+        current = current->mama;
+    }
+    std::cout << nombre << " oldest antecessor is " << youngestName << " with " << youngestAge << " years" << std::endl;
 }

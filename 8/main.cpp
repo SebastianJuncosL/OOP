@@ -11,7 +11,8 @@ int main(int argc, char const *argv[])
     Persona *cam = new Persona("Camila", 18, sol);
     // cout<<cam->getMother()<<endl;
     // lety->getNumOfAntecessors();
-    cam->getAntecessor();
+    //cam->getAntecessor();
+    cam->getOldestAntecessor();
     delete cam;
     // delete sol;
     // delete lau;

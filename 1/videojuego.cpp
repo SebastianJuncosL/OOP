@@ -12,14 +12,16 @@ Videojuego::Videojuego(string name, string rating, string genre)
 
 Videojuego::~Videojuego()
 {
-    delete lifes;
+    delete playing;
+    //std::cout << "Memory in heap restored" << std::endl;
 }
 
 void Videojuego::getInfo()
 {
-    std::cout << "Name:" << name << std::endl;
-    std::cout << "Genre:" << genre << std::endl;
-    std::cout << "Rating:" << rating << std::endl;
+    std::cout << "Name: " << *name << std::endl;
+    std::cout << "Genre: " << *genre << std::endl;
+    std::cout << "Rating: " << *rating << std::endl;
+    std::cout << lives << std::endl;
 }
 
 void Videojuego::playGame()
@@ -53,6 +55,8 @@ bool Videojuego::moveFordward()
             return true;
         }
         encounter();
+        if (lives == 0)
+            return false;
         return true;
     }
     std::cout << "Do you want to keep playing?" << std::endl;
@@ -66,6 +70,7 @@ bool Videojuego::moveFordward()
 
 void Videojuego::encounter()
 {
+    std::cout << lives << std::endl;
     int choice;
     std::cout << "YOU'VE ENCOUNTERED AN ENEMY!\nWhat do you want to do?" << std::endl;
     std::cout << "Choose an option with the number\n1.\tAttack\n2.\tDefend" << std::endl;
@@ -95,11 +100,20 @@ void Videojuego::attack()
     if (enemyAttack % 2 == 0)
     {
         std::cout << "The enemy hits you!" << std::endl;
-        lifes--;
-        std::cout << "You have " << lifes << " hits remaining" << std::endl;
+        lives--;
+        std::cout << "You have " << lives << " hits remaining" << std::endl;
     }
     else
         std::cout << "The enemy attacks, but misses" << std::endl;
+
+    if (lives == 0)
+    {
+        std::cout << "You died!" << std::endl;
+        std::cout << "----------GAME OVER----------" << std::endl;
+        *playing = false;
+        return;
+    }
+
     std::cout << "What do you want to do?" << std::endl;
     std::cout << "Choose an option with the number\n1.\tAttack\n2.\tDefend" << std::endl;
     cin >> choice;

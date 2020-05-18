@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
     //cam->getAntecessor();
     //cam->getOldestAntecessor();
     cam->getYoungestAntecessor();
+    sara->getOldestAntecessor();
     delete cam;
     // delete sol;
     // delete lau;

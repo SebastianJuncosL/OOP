@@ -6,9 +6,9 @@ Board::Board(int boardSize, string name)
     lengthAndWhith = &boardSize;
     *movementRules = "Move clockwise and you can only go fordward.\nThis is from right to left";
     *occupiedJail = false; // Because jail stars empty
-    for (int i = 0; i < 6; i++)
+    for (int i = 1,j=0; j < 6; i++,j++)
     {
-        dice[i] = i;
+        dice[j] = i;
     }
 }
 

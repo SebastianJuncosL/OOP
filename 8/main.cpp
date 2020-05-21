@@ -4,6 +4,7 @@
 using namespace std;
 int main(int argc, char const *argv[])
 {
+    Persona sara1();
     Persona *sara = new Persona();
     Persona *lety = new Persona("Leticia", 28, sara);
     Persona *lau = new Persona("Laura", 53, lety);

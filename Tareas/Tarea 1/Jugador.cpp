@@ -2,6 +2,7 @@
 
 Jugador::Jugador(string name)
 {
+    int pos = 0;
     this->name = &name;        // Asignamos un nombre a los jugadores desde el main, estos se
                                // encuentran en stack, por lo que no hay que borrarlos en el destructor
     ficha = toupper(name[0]);  // Iniciamos el valor de ficha
@@ -9,23 +10,27 @@ Jugador::Jugador(string name)
                                // inicializacion de ficha, por lo que la segunda letra se agrego depsues
     std::cout << "La ficha de " << *this->name << " es " << ficha << std::endl;
     // Le mostramos la ficha al jugador
-    posEnTablero = new int(0); // Genermaos un nuevo numero en heap para la posicon del jugador en el tablero
+    posEnTablero = 0; // Genermaos un nuevo numero en heap para la posicon del jugador en el tablero
 }
 
 Jugador::~Jugador()
 {
-    delete posEnTablero; // Borramos la posición en el tablero ya que este valor se encuentra en heap
+}
+
+string Jugador::getName()
+{
+    return *name; // Regresa el nombre del jugador para poder usarlo en mensajes dentro de la consola
 }
 
 void Jugador::setPos(int newPos)
 {
-    *posEnTablero = newPos; // cambiamos la posicion en el tablero, esta nos la dará la funcion de
+    posEnTablero = newPos; // cambiamos la posicion en el tablero, esta nos la dará la funcion de
                             // cambiarPos dentor de la clase tablero
 }
 
 int Jugador::getPos()
 {
-    return *posEnTablero; // Nos regresa la posicion del jugador en el tablero para saber cuantos
+    return posEnTablero; // Nos regresa la posicion del jugador en el tablero para saber cuantos
                           // pasos avanza y en donde colocar su ficha al momento de imprimir el tablero
 }
 

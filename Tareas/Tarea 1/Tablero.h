@@ -12,7 +12,7 @@ private:
     string tablero[30];              // El tablero es lineal, pero se va a imprimir como matríz
     int snakeTail[3] = {17, 21, 28}; // El jugador cae en una "cola" de serpiente y baja
     int snakeHead[3] = {3, 6, 10};   // Aquí es donde el jugador termina al bajar la seropiente
-    int stairTail[3] = {1, 8, 11};   // El jugador cae en una "cola" de escalera y sube
+    int stairTail[3] = {5, 8, 11};   // El jugador cae en una "cola" de escalera y sube
     int stairHead[3] = {14, 19, 27}; // Aquí es donde el jugador termina al subir la escalera
                                      // C = Casilla, I = Inicio, M = Meta, S = Serpiente, E = Escalera
 
@@ -24,8 +24,6 @@ public:
                                                // y stairTail/Head
     void mostrartablero(Jugador *, Jugador *); // Hace un print del tablero y le pasamos un apuntador para poder acceder
                                                // y utilizar la ficha y la posicion del jugador dentro del tablero
-    void cambiarPos(Jugador *);                // Movemos la posición del jugador dentro del tablero y tambíen
-                                               // cambiamos el valor de la posicion que tiene el objeto de clase Jugador
-    void turno(); // Esta funcion tira el dado y 
-    void gameOver(); // Revisa que ningun jugador esté en la meta, en caso de que uno de los 2 llegue, esta funcion hara terminar el juego
+    void turno(Jugador *);                     // Esta funcion tira el dado y mueve la posicion del jugador del
+                                               // jugador, ademas de cambiar la paosicone que tiene el jugador dentro de su clase
 };

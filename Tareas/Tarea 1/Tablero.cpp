@@ -3,12 +3,12 @@
 Tablero::Tablero()
 {
     dado = new Dado(); // Generamos un nuevo dado en heap
-    generarTablero();  // llamamos a la funcion que genera el tablero
+    generarTablero();  // Llamamos a la funcion que genera el tablero
 }
 
 Tablero::~Tablero()
 {
-    delete dado; // desstruimos el dado ya que se encuantra en heap
+    delete dado; // Destruimos el dado, ya que se encuantra en heap
 }
 
 void Tablero::generarTablero()
@@ -17,7 +17,7 @@ void Tablero::generarTablero()
     {
         tablero[i] = "CC"; // Inicialmente todas las casillas tienen "CC"
         // Al momento de encontrar una posicion en las listas de posiciones,
-        // esa casilla cambia su valor por cabeza o cola de escalera o serpeinte
+        // esa casilla cambia su valor por cabeza/cola de escalera/serpeinte
         for (int j = 0; j < 3; j++)
         {
             if (i == snakeTail[j])
@@ -36,32 +36,44 @@ void Tablero::generarTablero()
     }
 }
 
-void Tablero::mostrartablero(Jugador *Player1, Jugador *Player2)
+void Tablero::mostrartablero(Jugador *player1, Jugador *player2)
 {
-    for (int i = 0; i < 30; i++)
+    for (int i = 0; i < 30; i++) // Loop que itera en las 30 casillas del tablero
     {
-        if(Player1->getPos() == Player2->getPos())
-            tablero[Player1->getPos()] = "**";
-        else if(Player1->getPos() == i)
-            tablero[Player1->getPos()] = Player1->getFicha();
-        else if(Player2->getPos() == i)
-            tablero[Player2->getPos()] = Player2->getFicha();
+        if (player1->getPos() == player2->getPos())           // Comparamos las posiciones de ambos jugadores
+            tablero[player1->getPos()] = "**";                // Aqui es cuando los dos jugadores se encuentran en el mismo lugar en el tablero
+        else if (player1->getPos() == i)                      // Obtenemos la posicion del jugador uno
+            tablero[player1->getPos()] = player1->getFicha(); // Coloca la ficha del jugador 1 en el tablero e impirme su posicion al momento de mostrar el tablero
+        else if (player2->getPos() == i)                      // Obtenemos la posicion del jugador dos
+            tablero[player2->getPos()] = player2->getFicha(); // Coloca la ficha del jugador 2 en el tablero e impirme su posicion al momento de mostrar el tablero
         if (i % 6 == 0)
         {
-            cout << "\n";
+            cout << "\n"; // Con esto lo hacemos ver como un tablero de 5x6, haciendo saltos cada 6 espacios dentro del tablero
         }
-        cout << tablero[i] << " ";
+        cout << tablero[i] << " "; // Finalmente, hacemos el print de cada posición del tablero
     }
-    std::cout << "" << std::endl;
+    std::cout << "\n"; // Hacemos un salto para que los mensajes en la consola no esten tan "apretados"
 }
 
-void Tablero::cambiarPos(Jugador *persona)
+void Tablero::turno(Jugador *player)
 {
-    int newPos;
-    cin >> newPos;
-    persona->setPos(newPos);
-}
-void Tablero::turno()
-{
-    int avanza = dado->tirarDado();
+    int avanza = dado->tirarDado(), newPos;
+    std::cout << player->getName() << " avanza " << avanza << " lugares" << std::endl;
+    newPos = player->getPos() + avanza;
+    player->setPos(newPos);
+    for (int i = 0; i < 3; i++)
+    {
+        if (player->getPos() == snakeTail[i])
+        {
+            std::cout << "Caiste en una serpiente!" << std::endl;
+            player->setPos(snakeHead[i]);
+            break;
+        }
+        else if (player->getPos() == stairTail[i])
+        {
+            std::cout << "Sube la escalera!" << std::endl;
+            player->setPos(stairHead[i]);
+            break;
+        }
+    }
 }

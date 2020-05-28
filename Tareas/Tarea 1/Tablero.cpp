@@ -40,12 +40,21 @@ void Tablero::mostrartablero(Jugador *player1, Jugador *player2)
 {
     for (int i = 0; i < 30; i++) // Loop que itera en las 30 casillas del tablero
     {
-        if (player1->getPos() == player2->getPos())           // Comparamos las posiciones de ambos jugadores
-            tablero[player1->getPos()] = "**";                // Aqui es cuando los dos jugadores se encuentran en el mismo lugar en el tablero
-        else if (player1->getPos() == i)                      // Obtenemos la posicion del jugador uno
+        if (player1->getPos() == player2->getPos()) // Comparamos las posiciones de ambos jugadores
+        {
+            generarTablero();
+            tablero[player1->getPos()] = "**"; // Aqui es cuando los dos jugadores se encuentran en el mismo lugar en el tablero
+        }
+        else if (player1->getPos() == i) // Obtenemos la posicion del jugador uno
+        {
+            generarTablero();
             tablero[player1->getPos()] = player1->getFicha(); // Coloca la ficha del jugador 1 en el tablero e impirme su posicion al momento de mostrar el tablero
-        else if (player2->getPos() == i)                      // Obtenemos la posicion del jugador dos
+        }
+        else if (player2->getPos() == i) // Obtenemos la posicion del jugador dos
+        {
+            generarTablero();
             tablero[player2->getPos()] = player2->getFicha(); // Coloca la ficha del jugador 2 en el tablero e impirme su posicion al momento de mostrar el tablero
+        }
         if (i % 6 == 0)
         {
             cout << "\n"; // Con esto lo hacemos ver como un tablero de 5x6, haciendo saltos cada 6 espacios dentro del tablero

@@ -37,22 +37,14 @@ void Juego::showBoard()
 
 void Juego::play()
 {
-    int seguir;
-    // cout << jugador1->getName();
-    // cout << jugador2->getName();
+    int seguir1, seguir2;
     while (true)
     {
         std::cout << jugador1->getName() << " tu turno:" << std::endl;
         tablero->turno(jugador1);
         tablero->mostrartablero(jugador1, jugador2);
         std::cout << "Quieren seguir jugando? (1 = si/ 0 = no)" << std::endl;
-        cin >> seguir;
-        if (seguir == 1)
-        {
-            continue;
-        }
-        else
-            break;
+        cin >> seguir1;
         if (jugador1->getPos() > 28)
         {
             std::cout << "Felicidades " << jugador1->getName() << " ganaste!" << std::endl;
@@ -62,32 +54,15 @@ void Juego::play()
         tablero->turno(jugador2);
         tablero->mostrartablero(jugador1, jugador2);
         std::cout << "Quieren seguir jugando? (1 = si/ 0 = no)" << std::endl;
-        cin >> seguir;
-        if (seguir == 1)
-        {
-            continue;
-        }
-        else
-            break;
+        cin >> seguir2;
         if (jugador2->getPos() > 28)
         {
             std::cout << "Felicidades " << jugador2->getName() << " ganaste!" << std::endl;
             break;
         }
+        if (seguir1 == 1 && seguir2 == 1)
+            continue;
+        else
+            break;
     }
-}
-bool Juego::gameOver()
-{
-    if (jugador1->getPos() >= 29)
-    {
-        std::cout << "Felicidades " << jugador1->getName() << " ganaste!" << std::endl;
-        return false;
-    }
-    else if (jugador2->getPos() >= 29)
-    {
-        std::cout << "Felicidades " << jugador2->getName() << " ganaste!" << std::endl;
-        return false;
-    }
-
-    return true;
 }

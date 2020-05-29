@@ -66,7 +66,7 @@ void Tablero::mostrartablero(Jugador *player1, Jugador *player2)
 
 void Tablero::turno(Jugador *player)
 {
-    int avanza = dado->tirarDado(), newPos;
+    int avanza = dado->tirarDado(), newPos = 0;
     std::cout << player->getName() << " avanza " << avanza << " lugares" << std::endl;
     newPos = player->getPos() + avanza;
     player->setPos(newPos);

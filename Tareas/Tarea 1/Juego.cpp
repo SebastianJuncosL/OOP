@@ -4,15 +4,15 @@ Juego::Juego()
 {
     string *jugador1Name = new string, *jugador2Name = new string; // Generamos variables para poder guardar el nombre de los jugadores
     std::cout << "Jugador 1, introduce tu nombre:" << std::endl;
-    cin >> *jugador1Name;                 // Le pedimos al usuario el nombre del jugador 1
+    cin >> *jugador1Name;                  // Le pedimos al usuario el nombre del jugador 1
     jugador1 = new Jugador(*jugador1Name); // Generamos el jugador con el constructor dentro de la clase
-                                          //Jugador e imprimimos la ficha del jugador
+                                           //Jugador e imprimimos la ficha del jugador
     std::cout << "Jugador 2, introduce tu nombre:" << std::endl;
-    cin >> *jugador2Name;                 // Le pedimos al usuario el nombre del segundo jugador
-    jugador2 = new Jugador(*jugador2Name); // Generamos el jugador con el constructor dentro de la clase
-                                          // Jugador e imprimimos la ficha del jugador
-    tablero = new Tablero;                // Generamos el tablero, el constructor vacio dentor de tablero genera tods las
-    // casillas del tablero
+    cin >> *jugador2Name;                        // Le pedimos al usuario el nombre del segundo jugador
+    jugador2 = new Jugador(*jugador2Name);       // Generamos el jugador con el constructor dentro de la clase
+                                                 // Jugador e imprimimos la ficha del jugador
+    tablero = new Tablero;                       // Generamos el tablero, el constructor vacio dentor de tablero genera tods las
+                                                 // casillas del tablero
     tablero->mostrartablero(jugador1, jugador2); // Mostramos le tablero inical con los jugadores en la posición inical
     cout << "\n";
 }

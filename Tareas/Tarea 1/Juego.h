@@ -4,14 +4,12 @@
 class Juego
 {
 private:
-    Jugador *jugador1;
-    Jugador *jugador2;
-    Tablero *tablero;
+    Jugador *jugador1; // Apuntador al jugador uno (composicion)
+    Jugador *jugador2; // Apuntador al jugador dos (composicion)
+    Tablero *tablero;  // Apuntador al tablero (composicion)
 
 public:
-    Juego();          // Constructor por default
-    ~Juego();         // Destructor donde se destrullen los jugadores y el tablero
-    void changePos(); // Test para cambiar la posicion como SUDO
-    void showBoard(); // Test para mostrar el tablero como SUDO
-    void play();      // Esta función permite que el juego corra hasta que haya un ganador, llamando a la funcion de gameOver()
+    Juego();     // Constructor por default
+    ~Juego();    // Destructor donde se destrullen los jugadores y el tablero
+    void play(); // Esta función permite que el juego corra hasta que haya un ganador, llamando a la funcion de gameOver()
 };

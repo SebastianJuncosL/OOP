@@ -4,7 +4,8 @@
 
 int main(int argc, char const *argv[])
 {
-    Juego a;
-    a.play();
+    Juego *SyE = new Juego; // Generamos el juego
+    SyE->play(); // Llamamos a la fucnion de jugar
+    delete SyE; // Borramos el juego, ya qeu se enceuntra en heap
     return 0;
 }

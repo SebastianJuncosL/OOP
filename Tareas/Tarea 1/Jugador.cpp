@@ -2,19 +2,19 @@
 
 Jugador::Jugador(string name)
 {
-    this->name = new string(name); // Asignamos un nombre a los jugadores desde el main, estos se
-                                   // encuentran en stack, por lo que no hay que borrarlos en el destructor
+    this->name = new string(name); // Asignamos un nombre a los jugadores, estos se encuentran en stack,
+                                   // por lo que no hay que borrarlos en el destructor
     ficha = toupper(name[0]);      // Iniciamos el valor de ficha
     ficha += toupper(name[1]);     // Ocurria un problema al poner ambos caracteres en la
                                    // inicializacion de ficha, por lo que la segunda letra se agrego depsues
     std::cout << "La ficha de " << *this->name << " es " << ficha << std::endl;
     // Le mostramos la ficha al jugador
-    posEnTablero = 0; // Generamos un nuevo numero en heap para la posicon del jugador en el tablero
+    posEnTablero = 0; // Generamos un nuevo numero para la posicon del jugador en el tablero
 }
 
 Jugador::~Jugador()
 {
-    delete name;
+    delete name; // Borramos el nombre, ya que se encuentra en heap
 }
 
 string Jugador::getName()

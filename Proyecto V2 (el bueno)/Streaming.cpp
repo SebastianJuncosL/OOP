@@ -62,15 +62,15 @@ void Streaming::agregarCapitulos(string nombreSerie, string nombreCapitulo, int 
     {
         if (series[i]->getNombreSerie() == nombreSerie)
         {
-            cout<<"a\n";
+            cout << "a\n";
             serieDeConsulta = series[i];
             series[i]->updateRating();
-            cout<<"b\n";
+            cout << "b\n";
             genero = serieDeConsulta->getGenero();
-            cout<<"c\n";
+            cout << "c\n";
             serieDeConsulta->agregarCapitulo(numCap, nombreCapitulo, genero, duracion, calificacion);
             std::cout << "Capitulo agregado a " << series[i]->getNombreSerie() << std::endl;
-            cout<<"d\n";
+            cout << "d\n";
             break;
         }
     }
@@ -85,6 +85,18 @@ void Streaming::borrarSerie(string nombre)
             std::cout << "Se ha borrado la serie '" << series[i]->getNombreSerie() << "'" << std::endl;
             series[i]->borrarTodosLosCapitulos();
             delete series[i];
+        }
+    }
+}
+
+void Streaming::getCapitulosDeSerie(string serie)
+{
+    for (int i = 0; i < series.size(); i++)
+    {
+        if (series[i]->getNombreSerie() == serie)
+        {
+            series[i]->listaDeCapitulos();
+            break;
         }
     }
 }
@@ -128,8 +140,8 @@ void Streaming::buscarPorNombre(string nombre)
     {
         cout << "No hay series con ese nombre\n\n";
     }
-    else   
-        cout<<"\n";
+    else
+        cout << "\n";
 }
 
 void Streaming::buscarPorGenero(string nombre)
@@ -171,6 +183,6 @@ void Streaming::buscarPorGenero(string nombre)
     {
         cout << "No hay series con ese genero\n\n";
     }
-    else   
-        cout<<"\n";
+    else
+        cout << "\n";
 }

@@ -2,18 +2,20 @@
 #include <iostream>
 using namespace std;
 #include "Streaming.h"
+#include "Admin.h"
 
 int main(int argc, char const *argv[])
 {
+    Admin *juncos = new Admin("Admin Juncos");
     Streaming *netflix = new Streaming("Netflix");
-    netflix->agregarPelicula("Kimi No Na Wa", 1.46, "Romance", 4.9, "Makoto Shinkai");
+    juncos->agregarPelicula(netflix, "Kimi No Na Wa", 1.46, "Romance", 4.9, "Makoto Shinkai");
 
-    netflix->agregarSerie("Mirai Nikki", "Drama");
-    netflix->agregarCapitulos("Mirai Nikki", "Sign Up", 1, .24, 4.6);
+    juncos->agregarSerie(netflix,"Mirai Nikki", "Drama");
+    juncos->agregarCapitulos(netflix,"Mirai Nikki", "Sign Up", 1, .24, 4.6);
     cout << "1";
-    netflix->agregarCapitulos("Mirai Nikki", "Contract Terms", 2, .24, 4.8);
+    juncos->agregarCapitulos(netflix,"Mirai Nikki", "Contract Terms", 2, .24, 4.8);
     cout << "2";
-    netflix->agregarCapitulos("Mirai Nikki", "Initial Failure", 3, .24, 4.7);
+    //juncos->agregarCapitulos(netflix, "Mirai Nikki", "Initial Failure", 3, .24, 4.7);
     // cout << "3";
     // netflix->agregarCapitulos("Mirai Nikki", "Hand-Written", 4, .24, 4.6);
     // cout << "4";
@@ -43,7 +45,10 @@ int main(int argc, char const *argv[])
 
     netflix->getInfoSerie("Mirai Nikki");
     netflix->buscarPorNombre("mirai");
-    netflix->borrarSerie("Mirai Nikki");
-    netflix->quitarPelicula("Kimi No Na Wa");
+    juncos->borrarSerie(netflix, "Mirai Nikki");
+    juncos->borrarPelicula(netflix,"Kimi No Na Wa");
+    delete netflix;
+    delete juncos;
+
     return 0;
 }

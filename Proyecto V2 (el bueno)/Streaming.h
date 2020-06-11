@@ -11,19 +11,22 @@ private:
     string *nombre;
     vector<Pelicula *> peliculas;
     vector<Serie *> series;
-
-public:
-    Streaming(string);
-    ~Streaming();
+    friend class Admin;
     // Para las peliculas
-    void getInfoPelicula(string);
     void agregarPelicula(string, float, string, float, string);
     void quitarPelicula(string);
     // Para las series
     void agregarSerie(string, string);
     void agregarCapitulos(string, string, int, float, float);
-    void getInfoSerie(string);
     void borrarSerie(string);
+
+public:
+    Streaming(string);
+    ~Streaming();
+    // Información
+    void getInfoPelicula(string);
+    void getInfoSerie(string);
+    void getCapitulosDeSerie(string);
     // Busquedas
     void buscarPorNombre(string);
     void buscarPorGenero(string);

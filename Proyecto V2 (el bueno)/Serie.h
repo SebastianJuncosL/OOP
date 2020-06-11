@@ -9,7 +9,6 @@ private:
     string *nombre;
     string *genero;
     friend class Streaming;
-    friend class Admin;
     void updateRating();
     string getNombreSerie();
     void agregarCapitulo(int, string, string, float, float);

@@ -1,6 +1,5 @@
 #include "Video.h"
 
-
 class Capitulo : private Video
 {
 private:

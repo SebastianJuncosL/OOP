@@ -4,7 +4,7 @@ Pelicula::Pelicula(string nombre, float duracion, string genero, float calificac
 
 Pelicula::~Pelicula()
 {
-    cout << "Pelicula borrada\n";
+    // cout << "Pelicula " << *nombre << " borrada\n";
     delete director;
 }
 
@@ -12,14 +12,17 @@ string Pelicula::getNombre()
 {
     return *nombre;
 }
+
 string Pelicula::getDirector()
 {
     return *director;
 }
+
 string Pelicula::getGenero()
 {
     return *genero;
 }
+
 float Pelicula::getCalificacion()
 {
     return *calificacion;
@@ -39,4 +42,5 @@ void Pelicula::getInfoPelicula()
     }
     std::cout << "----" << std::endl;
     std::cout << "Rating: " << *calificacion << std::endl;
+    std::cout << "Director: "<< *director << std::endl;
 }

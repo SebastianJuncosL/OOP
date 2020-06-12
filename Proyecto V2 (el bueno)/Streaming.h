@@ -15,6 +15,7 @@ private:
     // Para las peliculas
     void agregarPelicula(string, float, string, float, string);
     void quitarPelicula(string);
+    void quitarTodasLasPeliculas();
     // Para las series
     void agregarSerie(string, string);
     void agregarCapitulos(string, string, int, float, float);
@@ -29,5 +30,6 @@ public:
     void getCapitulosDeSerie(string);
     // Busquedas
     void buscarPorNombre(string);
+    //Bsuquedas
     void buscarPorGenero(string);
 };

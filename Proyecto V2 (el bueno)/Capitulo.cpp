@@ -4,7 +4,7 @@ Capitulo::Capitulo(string nombre, float duracion, string genero, float calificac
 
 Capitulo::~Capitulo()
 {
-    cout << "Capitulo "<< *numeroCapitulo<<" borrado\n";
+    // cout << "Capitulo "<< *numeroCapitulo<<" borrado\n";
     delete numeroCapitulo;
 }
 

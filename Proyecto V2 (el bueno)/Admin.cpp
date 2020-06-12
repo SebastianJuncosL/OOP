@@ -30,3 +30,8 @@ void Admin::borrarPelicula(Streaming* servicio, string nombre)
 {
     servicio->quitarPelicula(nombre);
 }
+
+void Admin::borrarTodasLasPeliculas(Streaming*servicio)
+{
+    servicio->quitarTodasLasPeliculas();
+}

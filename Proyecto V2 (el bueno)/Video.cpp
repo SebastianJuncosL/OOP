@@ -4,7 +4,7 @@ Video::Video(string nombre, float duracion, string genero, float calificacion) :
 
 Video::~Video()
 {
-    cout << "Video Borrado\n";
+    // cout << "Video Borrado\n";
     delete nombre;
     delete duracion;
     delete genero;

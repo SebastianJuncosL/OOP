@@ -7,7 +7,7 @@ Serie::Serie(string nombre, string genero) : nombre(new string(nombre)), genero(
 
 Serie::~Serie()
 {
-    cout<< "La serie " << *nombre << " ha sido borrada\n"; 
+    //cout << "La serie " << *nombre << " ha sido borrada\n";
     delete nombre;
     delete genero;
 }
@@ -29,17 +29,7 @@ string Serie::getNombreSerie()
 
 void Serie::agregarCapitulo(int numCap, string nombre, string genero, float duracion, float calificacion)
 {
-    int i = 0;
-    if (capitulos.size() > 1)
-    {
-        while (capitulos[i]->getNumeroCapitulo() < numCap)
-        {
-            i++;
-        }
-        capitulos.insert(capitulos.begin() + i, new Capitulo(nombre, duracion, genero, calificacion, numCap));
-    }
-    else
-        capitulos.push_back(new Capitulo(nombre, duracion, genero, calificacion, numCap));
+    capitulos.push_back(new Capitulo(nombre, duracion, genero, calificacion, numCap));
 }
 
 void Serie::borrarTodosLosCapitulos()

@@ -37,6 +37,15 @@ void Streaming::quitarPelicula(string nombre)
     }
 }
 
+void Streaming::quitarTodasLasPeliculas()
+{
+    for (int i = 0; i < peliculas.size(); i++)
+    {
+        delete peliculas[i];
+    }
+    std::cout << "Todas las peliculas han sido borradas" << std::endl;
+}
+
 void Streaming::agregarSerie(string nombre, string genero)
 {
     series.push_back(new Serie(nombre, genero));
@@ -62,15 +71,11 @@ void Streaming::agregarCapitulos(string nombreSerie, string nombreCapitulo, int 
     {
         if (series[i]->getNombreSerie() == nombreSerie)
         {
-            cout << "a\n";
             serieDeConsulta = series[i];
             series[i]->updateRating();
-            cout << "b\n";
             genero = serieDeConsulta->getGenero();
-            cout << "c\n";
             serieDeConsulta->agregarCapitulo(numCap, nombreCapitulo, genero, duracion, calificacion);
-            std::cout << "Capitulo agregado a " << series[i]->getNombreSerie() << std::endl;
-            cout << "d\n";
+            //std::cout << "Capitulo agregado a " << series[i]->getNombreSerie() << std::endl;
             break;
         }
     }
@@ -149,7 +154,7 @@ void Streaming::buscarPorGenero(string nombre)
     string current;
     int count = 0;
     //Para las peliculas
-    std::cout << "\nPeliculas que contienen '" << nombre << "':" << std::endl;
+    std::cout << "\nPeliculas del genero '" << nombre << "':" << std::endl;
     for (int i = 0; i < peliculas.size(); i++)
     {
         current = peliculas[i]->getGenero();

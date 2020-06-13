@@ -89,18 +89,18 @@ int main(int argc, char const *argv[])
     juncos->agregarCapitulos(netflix, "BoJack Horseman", "Later", 12, .25, 5);
 
     // Busquedas e informacion:
-    netflix->buscarPorNombre("ar");
+    netflix->buscarPorNombre("w");
     netflix->getInfoPelicula("Star Wars");
     netflix->buscarPorGenero("drama");
     netflix->getInfoSerie("Mirai Nikki");
     cout << "\n";
     netflix->getCapitulosDeSerie("Mirai Nikki");
     cout << "\n";
-    netflix->buscarPorGenero("romance");
+    netflix->buscarPorGenero("roman");
     netflix->getInfoPelicula("Tenki no Ko");
     cout << "\n";
 
-    // Borramos todo el show
+    // Borramos todo
     juncos->borrarSerie(netflix, "Mirai Nikki");
     juncos->borrarSerie(netflix, "One Punch Man");
     juncos->borrarSerie(netflix, "Control Z");

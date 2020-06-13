@@ -4,7 +4,7 @@ Pelicula::Pelicula(string nombre, float duracion, string genero, float calificac
 
 Pelicula::~Pelicula()
 {
-    // cout << "Pelicula " << *nombre << " borrada\n";
+    // Borramos las variables que maneja la clase pelicula que se encuentran en heap
     delete director;
 }
 

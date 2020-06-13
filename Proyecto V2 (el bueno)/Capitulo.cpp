@@ -4,7 +4,7 @@ Capitulo::Capitulo(string nombre, float duracion, string genero, float calificac
 
 Capitulo::~Capitulo()
 {
-    // cout << "Capitulo "<< *numeroCapitulo<<" borrado\n";
+    // Borramos todos los atributos que se encuentran en heap de la clase Capitulo
     delete numeroCapitulo;
 }
 

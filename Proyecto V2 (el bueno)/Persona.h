@@ -5,6 +5,7 @@ using namespace std;
 class Persona
 {
 private:
+    // Le damos el nombre a la persona
     string *nombre;
 
 public:

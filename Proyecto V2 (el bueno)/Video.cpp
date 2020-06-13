@@ -4,7 +4,7 @@ Video::Video(string nombre, float duracion, string genero, float calificacion) :
 
 Video::~Video()
 {
-    // cout << "Video Borrado\n";
+    // Borramos todos los atributos de un video que se encutran en heap
     delete nombre;
     delete duracion;
     delete genero;

@@ -7,10 +7,10 @@ using namespace std;
 class Video
 {
 protected:
-    string *nombre;
-    float *duracion;
-    string *genero;
-    float *calificacion;
+    string *nombre;      // Nombre de los videos
+    float *duracion;     // Duracion del video
+    string *genero;      // Genero del video
+    float *calificacion; // Calificacion del video
 
 public:
     Video(string, float, string, float);
